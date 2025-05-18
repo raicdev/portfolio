@@ -41,6 +41,7 @@ async function getBlogPost(id: string) {
       }),
     };
   } catch (error) {
+    console.error(`Error fetching blog post with ID ${id}:`, error);
     return null;
   }
 }
@@ -55,8 +56,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
-  const post = await getBlogPost(params.id);
+export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = await getBlogPost(id);
 
   if (!post) {
     notFound();

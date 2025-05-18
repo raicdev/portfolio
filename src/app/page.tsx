@@ -1,4 +1,3 @@
-import { Dock, DockIcon } from "@/components/magicui/dock";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,9 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { SiRefinedgithub, SiX } from "@icons-pack/react-simple-icons";
-import { Edit2Icon, HomeIcon, MailIcon, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {

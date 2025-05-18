@@ -1,16 +1,9 @@
-import { Dock, DockIcon } from "@/components/magicui/dock";
-import { NumberTicker } from "@/components/magicui/number-ticker";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import {
   Tooltip,
   TooltipContent,
@@ -18,10 +11,8 @@ import {
 } from "@/components/ui/tooltip";
 import {
   SiDiscord,
-  SiRefinedgithub,
   SiX,
 } from "@icons-pack/react-simple-icons";
-import { Edit2Icon, HomeIcon, MailIcon, Play } from "lucide-react";
 import Link from "next/link";
 
 export default function Contact() {
