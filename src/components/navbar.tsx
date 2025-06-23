@@ -38,19 +38,20 @@ export function NavBar() {
   return (
     <Dock
       direction="middle"
-      className="fixed bottom-5 left-0 right-0 z-50 mx-auto max-w-fit rounded-full bg-black/80 px-4 py-2 shadow shadow-xl backdrop-blur"
+      className="fixed top-5 left-0 right-0 z-50 mx-auto max-w-fit rounded-full bg-black/80 px-4 py-2 shadow-xl backdrop-blur"
     >
       {dockItems.navbar.map((item) => (
         <DockIcon key={item.title}>
           <Link
             href={item.href}
             className={cn(
-              "flex items-center justify-center size-8 text-gray-400 hover:text-white transition-colors",
-              pathname === item.href && "text-white",
+              "flex items-center justify-center gap-2 px-3 py-2 text-gray-400 hover:text-white transition-colors rounded-md",
+              pathname === item.href && "text-white bg-white/10",
             )}
             title={item.title}
           >
             {item.icon}
+            <span className="text-sm font-medium">{item.title}</span>
           </Link>
         </DockIcon>
       ))}

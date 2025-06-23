@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
+import { LiquidGlass } from "liquid-glass-react"
 
 import { cn } from "@/lib/utils"
 
@@ -48,11 +49,22 @@ function Button({
   const Comp = asChild ? Slot : "button"
 
   return (
-    <Comp
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
+    <LiquidGlass
+      displacementScale={64}
+      blurAmount={0.1}
+      saturation={130}
+      aberrationIntensity={2}
+      elasticity={0.35}
+      cornerRadius={variant === "ghost" ? 8 : 100}
+      padding="0"
+      onClick={props.onClick}
+    >
+      <Comp
+        data-slot="button"
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...props}
+      />
+    </LiquidGlass>
   )
 }
 
