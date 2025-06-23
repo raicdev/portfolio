@@ -20,6 +20,7 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   iconDistance?: number;
   direction?: "top" | "middle" | "bottom";
   children: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 const DEFAULT_SIZE = 40;
