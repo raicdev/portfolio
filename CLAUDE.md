@@ -10,15 +10,15 @@ This is a personal portfolio website for "rai.bio" built with Next.js 15.3.2 usi
 
 ### Primary Development
 ```bash
-npm run dev          # Start development server with Turbopack (recommended)
-npm run build        # Build for production with Turbopack
-npm start           # Start production server
-npm run lint        # Run ESLint with Next.js rules
+bun run dev          # Start development server with Turbopack (recommended)
+bun run build        # Build for production with Turbopack
+bun start           # Start production server
+bun run lint        # Run ESLint with Next.js rules
 ```
 
 ### Package Management
-- Uses **pnpm** as the package manager (specified in package.json)
-- When installing packages, use `pnpm add` instead of `npm install`
+- Uses **bun** as the package manager (specified in package.json)
+- When installing packages, use `bun add` instead of `npm install`
 
 ## Architecture & Key Technologies
 
@@ -114,7 +114,7 @@ public/                     # Static assets
 
 ## Important Notes
 
-- The site uses **pnpm** as package manager - avoid using npm/yarn commands
+- The site uses **bun** as package manager - avoid using npm/yarn commands
 - **Turbopack** is the build tool - commands include `--turbo` flag automatically
 - Blog posts support **Japanese content** with proper date formatting
 - Theme switching is handled by `next-themes` with system preference detection
