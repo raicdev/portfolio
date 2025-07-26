@@ -12,7 +12,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import {
   SiCss,
+  SiSpotify,
   SiDotnet,
   SiDrizzle,
   SiHtml5,
@@ -24,8 +32,17 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "@icons-pack/react-simple-icons";
-import { Github, ExternalLink, Mail, Book, BotIcon, Dot } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+  Mail,
+  Book,
+  BotIcon,
+  Dot,
+  Divide,
+} from "lucide-react";
 import { Link } from "next-view-transitions";
+import Autoplay from "embla-carousel-autoplay"
 
 const projects = [
   {
@@ -71,6 +88,33 @@ const projects = [
       website: "https://vistaupdater.net",
     },
     techStack: [SiDotnet, CSharpIcon, SiHtml5, SiCss],
+  },
+];
+
+// const musics = [
+//   "https://open.spotify.com/embed/track/1TdYXsTtYbud0IieSW5wbh?utm_source=generator",
+//   "https://open.spotify.com/embed/track/5f47DEGO0cc0F08WB5xy17?utm_source=generator",
+//   "https://open.spotify.com/embed/track/2tNSF76aCuycE9e7nAi4eb?utm_source=generator",
+// ];
+
+const musics = [
+  {
+    title: "Again",
+    artist: "WANIMA",
+    link: "https://open.spotify.com/track/1TdYXsTtYbud0IieSW5wbh",
+    image: "https://i.scdn.co/image/ab67616d00001e02a47ebd6c2e33bda905c84f87",
+  },
+  {
+    title: "1CHANCE",
+    artist: "WANIMA",
+    link: "https://open.spotify.com/track/5f47DEGO0cc0F08WB5xy17",
+    image: "https://i.scdn.co/image/ab67616d00001e02450e2b102008d477dcb82f01",
+  },
+  {
+    title: "Odoruyoru",
+    artist: "WANIMA",
+    link: "https://open.spotify.com/track/2tNSF76aCuycE9e7nAi4eb",
+    image: "https://i.scdn.co/image/ab67616d00001e0263880b5fc1175787218ffc98",
   },
 ];
 
@@ -308,6 +352,62 @@ function CallToActionSection() {
               </div>
             </CardFooter>
           </Card>
+        </div>
+
+        <div className="transition-all duration-300 w-full">
+          <Carousel
+            className="w-full shadow-sm border rounded-lg h-24"
+            plugins={[
+              Autoplay({
+                delay: 5000,
+              }),
+            ]}
+          >
+            <CarouselContent>
+              {musics.map((music, index) => (
+                <CarouselItem key={index}>
+                  <div
+                    className="relative w-full h-full rounded-lg overflow-hidden user-select-none"
+                    style={{ userSelect: "none" }}
+                  >
+                    <div
+                      className="absolute inset-0 bg-cover bg-center filter blur-2xl scale-105"
+                      style={{ backgroundImage: `url(${music.image})` }}
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black" />
+
+                    <div className="relative z-10 p-4 flex flex-col justify-between h-full">
+                      <div className="absolute top-2 right-2">
+                        <SiSpotify size={24} style={{ color: "#1ED760" }} />
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={music.image}
+                          alt={music.title}
+                          width={64}
+                          height={64}
+                          className="rounded-md"
+                        />
+                        <div>
+                          <Link href={music.link} target="_blank">
+                            <div className="text-xl font-medium text-white">
+                              {music.title}
+                            </div>
+                            <div className="text-base text-white/70">
+                              {music.artist}
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="z-10" />
+            <CarouselNext className="z-10" />
+          </Carousel>
         </div>
       </div>
     </div>
