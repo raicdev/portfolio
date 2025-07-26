@@ -1,10 +1,12 @@
 "use client";
 
 import { SiRefinedgithub, SiX } from "@icons-pack/react-simple-icons";
-import { HomeIcon, Edit2Icon, MailIcon } from "lucide-react";
+import { HomeIcon, Edit2Icon, MailIcon, MoonIcon, SunIcon } from "lucide-react";
 import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
+import { useTheme } from "next-themes";
 
 const navItems = [
   { title: "Home", href: "/", icon: <HomeIcon className="size-4" /> },
@@ -27,6 +29,7 @@ const socialItems = [
 
 export function NavBar() {
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
 
   if (!pathname) {
     return null;
@@ -65,6 +68,14 @@ export function NavBar() {
             {item.icon}
           </Link>
         ))}
+
+        <div className="w-px h-6 bg-border mx-2" />
+
+        <Button variant="ghost" className="rounded-full" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+          <SunIcon className="size-4 dark:hidden" />
+          <MoonIcon className="size-4 hidden dark:block" />
+          <span className="sr-only">Theme</span>
+        </Button>
       </div>
     </nav>
   );

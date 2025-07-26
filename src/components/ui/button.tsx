@@ -10,15 +10,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-white/10 text-foreground shadow-lg backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 active:bg-white/15 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10",
+          "bg-white/10 text-foreground shadow-lg backdrop-blur-md border border-white/20 hover:bg-foreground/5 hover:border-white/30 active:bg-white/15 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10",
         destructive:
           "bg-red-500/10 text-red-600 shadow-lg backdrop-blur-md border border-red-500/20 hover:bg-red-500/20 hover:border-red-500/30 active:bg-red-500/15 dark:text-red-400 dark:bg-red-500/5 dark:border-red-500/10 dark:hover:bg-red-500/10",
         outline:
-          "bg-white/5 shadow-lg backdrop-blur-md border border-white/20 hover:bg-white/10 hover:border-white/30 active:bg-white/8 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10",
+          "bg-white/5 shadow-lg backdrop-blur-md border border-white/20 hover:bg-muted/50 hover:border-white/30 active:bg-white/8 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10",
         secondary:
           "bg-gray-500/10 text-secondary-foreground shadow-lg backdrop-blur-md border border-gray-500/20 hover:bg-gray-500/20 hover:border-gray-500/30 active:bg-gray-500/15 dark:bg-gray-500/5 dark:border-gray-500/10 dark:hover:bg-gray-500/10",
         ghost:
-          "hover:bg-white/10 hover:text-accent-foreground dark:hover:bg-white/5 backdrop-blur-sm",
+          "hover:bg-foreground/5 hover:text-accent-foreground dark:hover:bg-white/5 backdrop-blur-sm",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

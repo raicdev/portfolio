@@ -67,7 +67,7 @@ export default function Contact() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-3">
-                <Button variant="secondary" className="w-full justify-start" asChild>
+                <Button variant="outline" className="w-full justify-start" asChild>
                   <Link
                     href="https://github.com/raicdev"
                     target="_blank"
@@ -78,7 +78,7 @@ export default function Contact() {
                   </Link>
                 </Button>
 
-                <Button variant="secondary" className="w-full justify-start" asChild>
+                <Button variant="outline" className="w-full justify-start" asChild>
                   <Link
                     href="https://x.com/raic_dev"
                     target="_blank"
@@ -88,7 +88,7 @@ export default function Contact() {
                   </Link>
                 </Button>
 
-                <Button variant="secondary" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start">
                   <SiDiscord className="w-4 h-4" />
                   Discord: @raic_dev
                 </Button>
