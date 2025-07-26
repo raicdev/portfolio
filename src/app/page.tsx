@@ -391,10 +391,10 @@ function CallToActionSection() {
                         />
                         <div>
                           <Link href={music.link} target="_blank">
-                            <div className="text-xl font-medium text-white">
+                            <div className="text-xl font-semibold tracking-tight text-white">
                               {music.title}
                             </div>
-                            <div className="text-base text-white/70">
+                            <div className="text-base font-medium text-white/70">
                               {music.artist}
                             </div>
                           </Link>

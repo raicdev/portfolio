@@ -31,7 +31,7 @@ export default async function BlogPage() {
         <div className="space-y-6">
           {posts.map((post) => (
             <Link href={`/blog/${post.id}`} key={post.id}>
-              <Card className="bg-transparent border-none hover:bg-muted/50 transition-all duration-300 px-4">
+              <Card className="bg-transparent shadow-none border-none hover:bg-muted/50 transition-all duration-300 px-4">
                 <CardHeader className="!p-0">
                   <CardTitle className="text-2xl tracking-tight">
                     {post.title}
@@ -39,11 +39,7 @@ export default async function BlogPage() {
                   <CardDescription className="flex items-center gap-2">
                     <CalendarIcon className="w-4 h-4" />
                     <span>
-                      {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
+                      {new Date(post.publishedAt).toLocaleDateString()}
                     </span>
                   </CardDescription>
                 </CardHeader>

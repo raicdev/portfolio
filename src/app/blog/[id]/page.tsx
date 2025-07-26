@@ -48,11 +48,7 @@ export default async function BlogPost({
           <div className="flex items-center gap-2 mt-4">
             <CalendarIcon className="w-4 h-4" />
             <span>
-              {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {new Date(post.publishedAt).toLocaleDateString()}
             </span>
           </div>
         </div>
