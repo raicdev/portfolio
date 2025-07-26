@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  SiCss3,
+  SiCss,
   SiDotnet,
   SiDrizzle,
   SiHtml5,
@@ -70,7 +70,7 @@ const projects = [
       github: "https://github.com/raicdev/vistaupdater",
       website: "https://vistaupdater.net",
     },
-    techStack: [SiDotnet, CSharpIcon, SiHtml5, SiCss3],
+    techStack: [SiDotnet, CSharpIcon, SiHtml5, SiCss],
   },
 ];
 
