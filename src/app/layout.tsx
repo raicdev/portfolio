@@ -4,7 +4,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 import { NavBar } from "@/components/navbar";
-import { ViewTransitions } from "next-view-transitions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,25 +26,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <main style={{ viewTransitionName: "main-content" }}>
-              {children}
-            </main>
+          <main className="bg-muted/20 p-4 md:p-16 py-20 md:py-40 mx-auto max-w-2xl min-h-screen h-full">
+            {children}
+          </main>
 
-            <NavBar />
-          </ThemeProvider>
-        </body>
-      </html>
-    </ViewTransitions>
+          <NavBar />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
