@@ -41,7 +41,7 @@ import {
   Dot,
   Divide,
 } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay"
 
 const projects = [
@@ -354,7 +354,7 @@ function CallToActionSection() {
           </Card>
         </div>
 
-        <div className="transition-all duration-300 w-full">
+        <div className="transition-all duration-300 w-full overflow-hidden">
           <Carousel
             className="w-full shadow-sm border rounded-lg h-24"
             plugins={[
@@ -363,9 +363,9 @@ function CallToActionSection() {
               }),
             ]}
           >
-            <CarouselContent>
+            <CarouselContent className="!overflow-x-visible">
               {musics.map((music, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="!w-full max-w-full">
                   <div
                     className="relative w-full h-full rounded-lg overflow-hidden user-select-none"
                     style={{ userSelect: "none" }}
@@ -388,13 +388,14 @@ function CallToActionSection() {
                           width={64}
                           height={64}
                           className="rounded-md"
+                          style={{ minWidth: 48, minHeight: 48, maxWidth: 64, maxHeight: 64 }}
                         />
-                        <div>
+                        <div className="min-w-0">
                           <Link href={music.link} target="_blank">
-                            <div className="text-xl font-semibold tracking-tight text-white">
+                            <div className="text-xl font-semibold tracking-tight text-white truncate">
                               {music.title}
                             </div>
-                            <div className="text-base font-medium text-white/70">
+                            <div className="text-base font-medium text-white/70 truncate">
                               {music.artist}
                             </div>
                           </Link>

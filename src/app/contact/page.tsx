@@ -11,7 +11,7 @@ import {
   SiRefinedgithub,
   SiX,
 } from "@icons-pack/react-simple-icons";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { Mail, MessageCircle, Send } from "lucide-react";
 
 export default function Contact() {

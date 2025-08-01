@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CalendarIcon, BookOpen, ArrowRight, Loader2 } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { getBlogPosts } from "@/lib/post";
 
 export default async function BlogPage() {

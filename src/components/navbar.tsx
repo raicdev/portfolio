@@ -2,7 +2,7 @@
 
 import { SiRefinedgithub, SiX } from "@icons-pack/react-simple-icons";
 import { HomeIcon, Edit2Icon, MailIcon, MoonIcon, SunIcon } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
