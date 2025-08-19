@@ -8,6 +8,7 @@ type PostData = {
     publishedAt: string;
     summary: string;
     content: string;
+    language?: string;
 };
 
 // Function to get blog posts
@@ -42,6 +43,7 @@ export function getBlogPosts(): PostData[] {
                     publishedAt: matterResult.data.publishedAt || new Date().toISOString(),
                     summary: matterResult.data.summary || 'No summary available',
                     content: matterResult.content || 'No content available',
+                    language: (matterResult.data.language || '').toString().toLowerCase() || undefined,
                 };
             }) as PostData[];
 
@@ -59,11 +61,11 @@ export function getBlogPosts(): PostData[] {
     }
 }
 
-export function getBlogPost(id: string): PostData {
+export function getBlogPost(id: string): PostData | null {
     const posts = getBlogPosts();
     const post = posts.find(post => post.id === id);
     if (!post) {
-        throw new Error(`Post with id ${id} not found`);
+        return null;
     }
     return post;
 }

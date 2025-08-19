@@ -1,18 +1,27 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CalendarIcon, BookOpen, ArrowRight, Loader2 } from "lucide-react";
+import { CalendarIcon } from "lucide-react";
 import Link from "next/link";
 import { getBlogPosts } from "@/lib/post";
 
-export default async function BlogPage() {
+type Props = {
+  searchParams?: Promise<{ lang?: string }>;
+};
+
+export default async function BlogPage({ searchParams }: Props) {
   const posts = getBlogPosts();
+
+  // Determine selected language from search params (server-side)
+  const selectedLang = ((await searchParams)?.lang || 'en').toLowerCase();
+
+  const filteredPosts = selectedLang && selectedLang !== 'all'
+    ? posts.filter(p => (p.language || 'en').toLowerCase() === selectedLang)
+    : posts;
 
   return (
     <>
@@ -28,8 +37,23 @@ export default async function BlogPage() {
 
       {/* Blog Posts Section */}
       <section className="w-full">
+        {/* Filter controls */}
+        <div className="mb-6 flex items-center gap-3">
+          {['en', 'jp'].map((lang) => (
+            <Link
+              key={lang}
+              href={{ pathname: '/blog', query: lang === 'all' ? {} : { lang } }}
+              className={`px-3 py-1 rounded-md border ${
+                (selectedLang || 'all') === lang ? 'bg-muted text-foreground' : 'bg-transparent'
+              }`}
+            >
+              {lang.toUpperCase()}
+            </Link>
+          ))}
+        </div>
+
         <div className="space-y-6">
-          {posts.map((post) => (
+          {filteredPosts.map((post) => (
             <Link href={`/blog/${post.id}`} key={post.id}>
               <Card className="bg-transparent shadow-none border-none hover:bg-muted/50 transition-all duration-300 px-4">
                 <CardHeader className="!p-0">
