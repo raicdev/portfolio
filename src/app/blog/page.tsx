@@ -1,3 +1,5 @@
+import { CalendarIcon } from "lucide-react";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -5,8 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CalendarIcon } from "lucide-react";
-import Link from "next/link";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getBlogPosts } from "@/lib/post";
 
 type Props = {
@@ -17,11 +18,12 @@ export default async function BlogPage({ searchParams }: Props) {
   const posts = getBlogPosts();
 
   // Determine selected language from search params (server-side)
-  const selectedLang = ((await searchParams)?.lang || 'en').toLowerCase();
+  const selectedLang = ((await searchParams)?.lang || "en").toLowerCase();
 
-  const filteredPosts = selectedLang && selectedLang !== 'all'
-    ? posts.filter(p => (p.language || 'en').toLowerCase() === selectedLang)
-    : posts;
+  const filteredPosts =
+    selectedLang && selectedLang !== "all"
+      ? posts.filter((p) => (p.language || "en").toLowerCase() === selectedLang)
+      : posts;
 
   return (
     <>
@@ -38,19 +40,20 @@ export default async function BlogPage({ searchParams }: Props) {
       {/* Blog Posts Section */}
       <section className="w-full">
         {/* Filter controls */}
-        <div className="mb-6 flex items-center gap-3">
-          {['en', 'jp'].map((lang) => (
-            <Link
-              key={lang}
-              href={{ pathname: '/blog', query: lang === 'all' ? {} : { lang } }}
-              className={`px-3 py-1 rounded-md border ${
-                (selectedLang || 'all') === lang ? 'bg-muted text-foreground' : 'bg-transparent'
-              }`}
-            >
-              {lang.toUpperCase()}
-            </Link>
-          ))}
-        </div>
+        <Tabs value={selectedLang || "en"} className="mb-6">
+          <TabsList>
+            <TabsTrigger value="en" asChild>
+              <Link href={{ pathname: "/blog", query: { lang: "en" } }}>
+                EN
+              </Link>
+            </TabsTrigger>
+            <TabsTrigger value="jp" asChild>
+              <Link href={{ pathname: "/blog", query: { lang: "jp" } }}>
+                JP
+              </Link>
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
 
         <div className="space-y-6">
           {filteredPosts.map((post) => (

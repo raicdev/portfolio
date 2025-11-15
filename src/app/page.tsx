@@ -1,5 +1,20 @@
 "use client";
 
+import {
+  SiCss,
+  SiDotnet,
+  SiHtml5,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiShadcnui,
+  SiSpotify,
+  SiTailwindcss,
+  SiTypescript,
+} from "@icons-pack/react-simple-icons";
+import Autoplay from "embla-carousel-autoplay";
+import { Book, BotIcon, Dot, ExternalLink, Github, Mail } from "lucide-react";
+import Link from "next/link";
 import CSharpIcon from "@/components/csharp-icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,34 +30,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
   CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  SiCss,
-  SiSpotify,
-  SiDotnet,
-  SiDrizzle,
-  SiHtml5,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiReact,
-  SiShadcnui,
-  SiSupabase,
-  SiTailwindcss,
-  SiTypescript,
-} from "@icons-pack/react-simple-icons";
-import {
-  Github,
-  ExternalLink,
-  Mail,
-  Book,
-  BotIcon,
-  Dot,
-  Divide,
-} from "lucide-react";
-import Link from "next/link";
-import Autoplay from "embla-carousel-autoplay"
 
 const projects = [
   {
@@ -57,7 +47,6 @@ const projects = [
       SiReact,
       SiNextdotjs,
       SiTypescript,
-      SiSupabase,
       SiTailwindcss,
       SiShadcnui,
     ],
@@ -74,8 +63,6 @@ const projects = [
       SiReact,
       SiNextdotjs,
       SiTypescript,
-      SiSupabase,
-      SiDrizzle,
       SiTailwindcss,
       SiShadcnui,
     ],
@@ -99,22 +86,34 @@ const projects = [
 
 const musics = [
   {
-    title: "Again",
+    title: "JOY",
     artist: "WANIMA",
     link: "https://open.spotify.com/track/1TdYXsTtYbud0IieSW5wbh",
     image: "https://i.scdn.co/image/ab67616d00001e02a47ebd6c2e33bda905c84f87",
   },
   {
-    title: "1CHANCE",
-    artist: "WANIMA",
-    link: "https://open.spotify.com/track/5f47DEGO0cc0F08WB5xy17",
-    image: "https://i.scdn.co/image/ab67616d00001e02450e2b102008d477dcb82f01",
+    title: "VIBES BY VIBES",
+    artist: "10-FEET, WANIMA",
+    link: "https://open.spotify.com/track/4IQ8TRkM7s24li5Y6xbEtp",
+    image: "https://i.scdn.co/image/ab67616d00001e0280939e7013adeaa97c89febd",
   },
   {
-    title: "Odoruyoru",
+    title: "BOUNCE",
     artist: "WANIMA",
-    link: "https://open.spotify.com/track/2tNSF76aCuycE9e7nAi4eb",
-    image: "https://i.scdn.co/image/ab67616d00001e0263880b5fc1175787218ffc98",
+    link: "https://open.spotify.com/track/17HSDvPT3OGWnyiAJkh5Uw",
+    image: "https://i.scdn.co/image/ab67616d00001e02a47ebd6c2e33bda905c84f87",
+  },
+  {
+    title: "CHEEKY",
+    artist: "WANIMA",
+    link: "https://open.spotify.com/track/65ttzt1Dh390yjQssY5maw",
+    image: "https://i.scdn.co/image/ab67616d00001e02be77ec342dae727a2ce8c7d7",
+  },
+  {
+    title: "Takaramono",
+    artist: "WANIMA",
+    link: "https://open.spotify.com/track/4bcTGxE7oljiiStL4jItFB",
+    image: "https://i.scdn.co/image/ab67616d00001e02a47ebd6c2e33bda905c84f87",
   },
 ];
 
@@ -122,16 +121,18 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div className="flex flex-col w-full mb-16">
-        <h1 className="text-5xl font-semibold text-foreground mb-2 tracking-tight">
-          rai
-        </h1>
-        <p className="text-lg text-muted-foreground mb-4 tracking-tight font-medium flex items-center">
-          Student <Dot /> Full Stack Developer
-        </p>
+      <div className="flex flex-col md:flex-row justify-between w-full mb-8">
+        <div className="flex flex-col justify-center">
+          <h1 className="text-5xl font-semibold text-foreground mb-2 tracking-tight">
+            rai
+          </h1>
+          <p className="text-lg text-muted-foreground mb-4 tracking-tight font-medium flex items-center">
+            Student <Dot /> Full Stack Developer
+          </p>
+        </div>
         <div className="flex items-center gap-4">
           <div>
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" size="lg" asChild>
               <Link href="/contact">
                 <Mail className="w-4 h-4 mr-2" />
                 Contact
@@ -139,7 +140,7 @@ export default function Home() {
             </Button>
           </div>
           <div>
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" size="lg" asChild>
               <Link href="https://github.com/raicdev" target="_blank">
                 <Github className="w-4 h-4 mr-2" />
                 GitHub
@@ -155,9 +156,6 @@ export default function Home() {
       {/* Projects Section */}
       <ProjectsSection />
 
-      {/* Skills Section */}
-      <SkillsSection />
-
       {/* Call to Action */}
       <CallToActionSection />
     </>
@@ -166,23 +164,31 @@ export default function Home() {
 
 function AboutSection() {
   return (
-    <section className="w-full mb-16 space-y-4">
+    <section className="w-full mb-8 space-y-4">
       <h2 className="text-3xl font-semibold mb-8 group cursor-default relative">
-        <span className="transition-opacity duration-300 text-foreground/80 group-hover:opacity-0">
-          About me
-        </span>
         <span className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           Who am I?
         </span>
       </h2>
       <p className="text-muted-foreground text-base leading-relaxed">
-        Hi. I&#39;m Rai, a passionate full stack developer. I living on Japan. I
-        love creating web applications. And, VistaUpdater and Win7Updater is my
-        notable projects.
+        Hi. <span className="text-foreground">I&#39;m Rai</span>, a{" "}
+        <span className="text-foreground">
+          passionate full stack developer.
+        </span>{" "}
+        I living on <span className="text-foreground">Japan</span>. I love{" "}
+        <span className="text-foreground">creating web applications.</span> And,{" "}
+        <span className="text-foreground">VistaUpdater</span> and{" "}
+        <span className="text-foreground">Win7Updater</span> is my notable
+        projects.
         <br />
-        <br />I have experience in various technologies including Node.js,
-        React, Next.js, TypeScript, and more. I enjoy building scalable and
-        efficient applications that solve real-world problems.
+        <br />I have experience in various technologies including{" "}
+        <span className="text-foreground">Node.js</span>,{" "}
+        <span className="text-foreground">React</span>,{" "}
+        <span className="text-foreground">Next.js</span>,{" "}
+        <span className="text-foreground">TypeScript</span>, and more. I enjoy
+        building <span className="text-foreground">scalable</span> and{" "}
+        <span className="text-foreground">efficient</span> applications that
+        solve <span className="text-foreground">real-world problems</span>.
       </p>
     </section>
   );
@@ -200,10 +206,17 @@ function ProjectsSection() {
         </span>
       </h2>
 
-      <div className="grid gap-6">
-        {projects.map((project) => (
-          <div className="transition-all duration-300" key={project.name}>
-            <Card className="bg-gradient-to-b from-background/5 to-secondary/30 border rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {projects.map((project, index) => (
+          <div
+            className={`transition-all duration-300 ${
+              projects.length % 2 === 1 && index === projects.length - 1
+                ? "md:col-span-2"
+                : ""
+            }`}
+            key={project.name}
+          >
+            <Card className="bg-muted/10 border rounded-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <BotIcon className="w-5 h-5" />
@@ -214,6 +227,7 @@ function ProjectsSection() {
               <CardContent>
                 <div className="w-full flex items-center gap-2">
                   {project.techStack.map((Icon, index) => (
+                    // biome-ignore lint/suspicious/noArrayIndexKey: todo
                     <div key={index}>
                       <Icon />
                     </div>
@@ -246,51 +260,6 @@ function ProjectsSection() {
   );
 }
 
-function SkillsSection() {
-  const skills = [
-    "Node.js",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Supabase",
-    "Tailwind CSS",
-    "HTML",
-    "CSS",
-    ".NET",
-    "C#",
-  ];
-
-  return (
-    <section className="w-full mb-16">
-      <div className="transition-all duration-300">
-        <h2 className="text-3xl font-semibold mb-8 group cursor-default relative">
-          <span className="transition-opacity duration-300 text-foreground/80 group-hover:opacity-0">
-            Skills
-          </span>
-          <span className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            I learned these
-          </span>
-        </h2>
-        <Card className="bg-gradient-to-b from-background/5 to-secondary/30 border rounded-lg">
-          <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-              {skills.map((skill) => (
-                <Badge
-                  key={skill}
-                  variant="secondary"
-                  className="justify-center py-2 w-full cursor-default"
-                >
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </section>
-  );
-}
-
 function CallToActionSection() {
   return (
     <div className="w-full">
@@ -304,70 +273,73 @@ function CallToActionSection() {
               View more
             </span>
           </h2>
-          <Card className="w-full bg-gradient-to-b from-background/5 to-secondary/30 border rounded-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Mail className="w-5 h-5" />
-                Contact Me
-              </CardTitle>
-              <CardDescription>
-                Get in touch with me for collaboration or just a chat!
-                <br />
-                I&apos;m always open to new opportunities.
-              </CardDescription>
-            </CardHeader>
-            <CardFooter className="flex gap-4">
-              <div>
-                <Button asChild>
-                  <Link href="/contact" target="_blank">
-                    <Mail className="w-4 h-4 mr-2" />
-                    Contact
-                  </Link>
-                </Button>
-              </div>
-            </CardFooter>
-          </Card>
-        </div>
 
-        <div className="transition-all duration-300 w-full sm:min-w-1/2">
-          <Card className="w-full bg-gradient-to-b from-background/5 to-secondary/30 border rounded-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Book className="w-5 h-5" />
-                My Blog
-              </CardTitle>
-              <CardDescription>
-                Read my latest articles on web development, AI, and more. <br />
-                I share maybe useful tips.
-              </CardDescription>
-            </CardHeader>
-            <CardFooter className="flex gap-4">
-              <div>
-                <Button asChild>
-                  <Link href="/blog" target="_blank">
-                    <Book className="w-4 h-4 mr-2" />
-                    Read Blog
-                  </Link>
-                </Button>
-              </div>
-            </CardFooter>
-          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card className="w-full bg-muted/10 border rounded-lg">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  Contact Me
+                </CardTitle>
+                <CardDescription>
+                  Get in touch with me for collaboration or just a chat!
+                  <br />
+                  I&apos;m always open to new opportunities.
+                </CardDescription>
+              </CardHeader>
+              <CardFooter className="flex gap-4">
+                <div>
+                  <Button asChild>
+                    <Link href="/contact" target="_blank">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Contact
+                    </Link>
+                  </Button>
+                </div>
+              </CardFooter>
+            </Card>
+
+            <div className="transition-all duration-300 w-full">
+              <Card className="w-full bg-muted/10 border rounded-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Book className="w-5 h-5" />
+                    My Blog
+                  </CardTitle>
+                  <CardDescription>
+                    Read my latest articles on web development, AI, and more.{" "}
+                    <br />I share maybe useful tips.
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="flex gap-4">
+                  <div>
+                    <Button asChild>
+                      <Link href="/blog" target="_blank">
+                        <Book className="w-4 h-4 mr-2" />
+                        Read Blog
+                      </Link>
+                    </Button>
+                  </div>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
         </div>
 
         <div className="transition-all duration-300 w-full overflow-hidden">
           <Carousel
-            className="w-full shadow-sm border rounded-lg h-24"
+            className="w-full shadow-sm border rounded-lg h-36"
             plugins={[
               Autoplay({
                 delay: 5000,
               }),
             ]}
           >
-            <CarouselContent className="!overflow-x-visible">
+            <CarouselContent className="h-full !overflow-x-visible">
               {musics.map((music, index) => (
-                <CarouselItem key={index} className="!w-full max-w-full">
+                <CarouselItem key={music.title} className="w-full! max-w-full">
                   <div
-                    className="relative w-full h-full rounded-lg overflow-hidden user-select-none"
+                    className="relative w-full h-36 rounded-lg overflow-hidden user-select-none"
                     style={{ userSelect: "none" }}
                   >
                     <div
@@ -377,25 +349,24 @@ function CallToActionSection() {
 
                     <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black" />
 
-                    <div className="relative z-10 p-4 flex flex-col justify-between h-full">
+                    <div className="relative z-10 p-4 flex flex-col justify-between h-36">
                       <div className="absolute top-2 right-2">
-                        <SiSpotify size={24} style={{ color: "#1ED760" }} />
+                        <SiSpotify size={24} className="text-white/70" />
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex justify-between items-center gap-3 h-full">
                         <img
                           src={music.image}
                           alt={music.title}
-                          width={64}
-                          height={64}
-                          className="rounded-md"
-                          style={{ minWidth: 48, minHeight: 48, maxWidth: 64, maxHeight: 64 }}
+                          width={96}
+                          height={96}
+                          className="rounded-md min-w-16 max-w-24"
                         />
-                        <div className="min-w-0">
+                        <div className="min-w-0 text-right mt-auto">
                           <Link href={music.link} target="_blank">
-                            <div className="text-xl font-semibold tracking-tight text-white truncate">
+                            <div className="text-base font-semibold tracking-tight text-white truncate">
                               {music.title}
                             </div>
-                            <div className="text-base font-medium text-white/70 truncate">
+                            <div className="text-sm font-medium text-white/70 truncate">
                               {music.artist}
                             </div>
                           </Link>

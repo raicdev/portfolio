@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 interface CSharpIconProps {
   size?: number;
@@ -16,6 +16,7 @@ const CSharpIcon: React.FC<CSharpIconProps> = ({ size = 24, className }) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
+      <title>C# Icon</title>
       <defs id="defs12">
         <linearGradient
           id="a"
@@ -38,11 +39,7 @@ const CSharpIcon: React.FC<CSharpIconProps> = ({ size = 24, className }) => {
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood
-            floodOpacity="0"
-            result="BackgroundImageFix"
-            id="feFlood2"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" id="feFlood2" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
