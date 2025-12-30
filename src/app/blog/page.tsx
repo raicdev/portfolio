@@ -1,12 +1,6 @@
 import { CalendarIcon } from "lucide-react";
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getBlogPosts } from "@/lib/post";
 
@@ -29,12 +23,8 @@ export default async function BlogPage({ searchParams }: Props) {
     <>
       {/* Header */}
       <div className="mb-16">
-        <h1 className="text-5xl font-semibold text-foreground tracking-tight mb-2">
-          Blog
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Thoughts on code and technology
-        </p>
+        <h1 className="text-5xl font-semibold text-foreground tracking-tight mb-2">Blog</h1>
+        <p className="text-lg text-muted-foreground">Thoughts on code and technology</p>
       </div>
 
       {/* Blog Posts Section */}
@@ -43,14 +33,10 @@ export default async function BlogPage({ searchParams }: Props) {
         <Tabs value={selectedLang || "en"} className="mb-6">
           <TabsList>
             <TabsTrigger value="en" asChild>
-              <Link href={{ pathname: "/blog", query: { lang: "en" } }}>
-                EN
-              </Link>
+              <Link href={{ pathname: "/blog", query: { lang: "en" } }}>EN</Link>
             </TabsTrigger>
             <TabsTrigger value="jp" asChild>
-              <Link href={{ pathname: "/blog", query: { lang: "jp" } }}>
-                JP
-              </Link>
+              <Link href={{ pathname: "/blog", query: { lang: "jp" } }}>JP</Link>
             </TabsTrigger>
           </TabsList>
         </Tabs>
@@ -60,20 +46,14 @@ export default async function BlogPage({ searchParams }: Props) {
             <Link href={`/blog/${post.id}`} key={post.id}>
               <Card className="bg-transparent shadow-none border-none hover:bg-muted/50 transition-all duration-300 px-4">
                 <CardHeader className="!p-0">
-                  <CardTitle className="text-2xl tracking-tight">
-                    {post.title}
-                  </CardTitle>
+                  <CardTitle className="text-2xl tracking-tight">{post.title}</CardTitle>
                   <CardDescription className="flex items-center gap-2">
                     <CalendarIcon className="w-4 h-4" />
-                    <span>
-                      {new Date(post.publishedAt).toLocaleDateString()}
-                    </span>
+                    <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="!p-0">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {post.summary}
-                  </p>
+                  <p className="text-muted-foreground leading-relaxed">{post.summary}</p>
                 </CardContent>
               </Card>
             </Link>

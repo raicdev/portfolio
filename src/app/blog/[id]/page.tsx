@@ -1,11 +1,5 @@
 import { notFound } from "next/navigation";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { CalendarIcon, ArrowLeft, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -15,11 +9,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { getBlogPost } from "@/lib/post";
 
-export default async function BlogPost({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
   const post = getBlogPost((await params).id);
 
   if (!post) {
@@ -47,18 +37,13 @@ export default async function BlogPost({
           <p className="text-lg text-muted-foreground">{post.summary}</p>
           <div className="flex items-center gap-2 mt-4">
             <CalendarIcon className="w-4 h-4" />
-            <span>
-              {new Date(post.publishedAt).toLocaleDateString()}
-            </span>
+            <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
           </div>
         </div>
 
         {/* Article Content */}
         <div className="prose prose-lg dark:prose-invert max-w-none">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm, remarkMath]}
-            rehypePlugins={[rehypeKatex]}
-          >
+          <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
             {post.content}
           </ReactMarkdown>
         </div>

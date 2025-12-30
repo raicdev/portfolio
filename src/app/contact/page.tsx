@@ -1,18 +1,8 @@
-import {
-  SiDiscord,
-  SiRefinedgithub,
-  SiX,
-} from "@icons-pack/react-simple-icons";
+import { SiDiscord, SiRefinedgithub, SiX } from "@icons-pack/react-simple-icons";
 import { Mail, MessageCircle, Send } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Contact() {
   return (
@@ -20,12 +10,8 @@ export default function Contact() {
       <div className="flex flex-col w-full">
         {/* Header */}
         <div className="mb-16">
-          <h1 className="text-5xl font-semibold text-foreground tracking-tight mb-2">
-            Contact
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Let&apos;s work together
-          </p>
+          <h1 className="text-5xl font-semibold text-foreground tracking-tight mb-2">Contact</h1>
+          <p className="text-lg text-muted-foreground">Let&apos;s work together</p>
         </div>
 
         {/* Contact Methods */}
@@ -42,9 +28,7 @@ export default function Contact() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="font-mono text-sm bg-muted p-3 rounded">
-                rai@rai.bio
-              </div>
+              <div className="font-mono text-sm bg-muted p-3 rounded">rai@rai.bio</div>
               <Button className="w-full" asChild>
                 <Link href="mailto:rai@rai.bio">
                   <Send className="w-4 h-4 mr-2" />
@@ -67,11 +51,7 @@ export default function Contact() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-3">
-                <Button
-                  variant="outline"
-                  className="w-full justify-start"
-                  asChild
-                >
+                <Button variant="outline" className="w-full justify-start" asChild>
                   <Link
                     href="https://github.com/raicdev"
                     target="_blank"
@@ -82,11 +62,7 @@ export default function Contact() {
                   </Link>
                 </Button>
 
-                <Button
-                  variant="outline"
-                  className="w-full justify-start"
-                  asChild
-                >
+                <Button variant="outline" className="w-full justify-start" asChild>
                   <Link
                     href="https://x.com/raic_dev"
                     target="_blank"

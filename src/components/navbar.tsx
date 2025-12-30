@@ -46,7 +46,7 @@ export function NavBar() {
               "flex items-center gap-2 px-3 py-2 text-sm rounded-full transition-all duration-200 hover:scale-105",
               pathname === item.href
                 ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground hover:bg-accent/30 backdrop-blur-sm"
+                : "text-muted-foreground hover:text-foreground hover:bg-accent/30 backdrop-blur-sm",
             )}
             title={item.title}
           >

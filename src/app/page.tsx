@@ -16,8 +16,8 @@ import Autoplay from "embla-carousel-autoplay";
 import { Book, BotIcon, Dot, ExternalLink, Github, Mail } from "lucide-react";
 import Link from "next/link";
 import CSharpIcon from "@/components/csharp-icon";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -42,14 +42,7 @@ const projects = [
       github: "https://github.com/teamzisty/deni-ai",
       website: "https://deniai.app",
     },
-    techStack: [
-      SiNodedotjs,
-      SiReact,
-      SiNextdotjs,
-      SiTypescript,
-      SiTailwindcss,
-      SiShadcnui,
-    ],
+    techStack: [SiNodedotjs, SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiShadcnui],
   },
   {
     name: "Prodfind",
@@ -58,14 +51,7 @@ const projects = [
       github: "https://github.com/teamzisty/prodfind",
       website: "https://prodfind.space",
     },
-    techStack: [
-      SiNodedotjs,
-      SiReact,
-      SiNextdotjs,
-      SiTypescript,
-      SiTailwindcss,
-      SiShadcnui,
-    ],
+    techStack: [SiNodedotjs, SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiShadcnui],
   },
   {
     name: "VistaUpdater",
@@ -123,9 +109,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row justify-between w-full mb-8">
         <div className="flex flex-col justify-center">
-          <h1 className="text-5xl font-semibold text-foreground mb-2 tracking-tight">
-            rai
-          </h1>
+          <h1 className="text-5xl font-semibold text-foreground mb-2 tracking-tight">rai</h1>
           <p className="text-lg text-muted-foreground mb-4 tracking-tight font-medium flex items-center">
             Student <Dot /> Full Stack Developer
           </p>
@@ -172,23 +156,20 @@ function AboutSection() {
       </h2>
       <p className="text-muted-foreground text-base leading-relaxed">
         Hi. <span className="text-foreground">I&#39;m Rai</span>, a{" "}
-        <span className="text-foreground">
-          passionate full stack developer.
-        </span>{" "}
-        I living on <span className="text-foreground">Japan</span>. I love{" "}
+        <span className="text-foreground">passionate full stack developer.</span> I living on{" "}
+        <span className="text-foreground">Japan</span>. I love{" "}
         <span className="text-foreground">creating web applications.</span> And,{" "}
         <span className="text-foreground">VistaUpdater</span> and{" "}
-        <span className="text-foreground">Win7Updater</span> is my notable
-        projects.
+        <span className="text-foreground">Win7Updater</span> is my notable projects.
         <br />
         <br />I have experience in various technologies including{" "}
         <span className="text-foreground">Node.js</span>,{" "}
         <span className="text-foreground">React</span>,{" "}
         <span className="text-foreground">Next.js</span>,{" "}
-        <span className="text-foreground">TypeScript</span>, and more. I enjoy
-        building <span className="text-foreground">scalable</span> and{" "}
-        <span className="text-foreground">efficient</span> applications that
-        solve <span className="text-foreground">real-world problems</span>.
+        <span className="text-foreground">TypeScript</span>, and more. I enjoy building{" "}
+        <span className="text-foreground">scalable</span> and{" "}
+        <span className="text-foreground">efficient</span> applications that solve{" "}
+        <span className="text-foreground">real-world problems</span>.
       </p>
     </section>
   );
@@ -210,9 +191,7 @@ function ProjectsSection() {
         {projects.map((project, index) => (
           <div
             className={`transition-all duration-300 ${
-              projects.length % 2 === 1 && index === projects.length - 1
-                ? "md:col-span-2"
-                : ""
+              projects.length % 2 === 1 && index === projects.length - 1 ? "md:col-span-2" : ""
             }`}
             key={project.name}
           >
@@ -307,8 +286,8 @@ function CallToActionSection() {
                     My Blog
                   </CardTitle>
                   <CardDescription>
-                    Read my latest articles on web development, AI, and more.{" "}
-                    <br />I share maybe useful tips.
+                    Read my latest articles on web development, AI, and more. <br />I share maybe
+                    useful tips.
                   </CardDescription>
                 </CardHeader>
                 <CardFooter className="flex gap-4">
@@ -335,8 +314,8 @@ function CallToActionSection() {
               }),
             ]}
           >
-            <CarouselContent className="h-full !overflow-x-visible">
-              {musics.map((music, index) => (
+            <CarouselContent className="h-full overflow-x-visible!">
+              {musics.map((music, _index) => (
                 <CarouselItem key={music.title} className="w-full! max-w-full">
                   <div
                     className="relative w-full h-36 rounded-lg overflow-hidden user-select-none"
@@ -347,14 +326,14 @@ function CallToActionSection() {
                       style={{ backgroundImage: `url(${music.image})` }}
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black" />
+                    <div className="absolute inset-0 bg-linear-to-b from-black/10 to-black" />
 
                     <div className="relative z-10 p-4 flex flex-col justify-between h-36">
                       <div className="absolute top-2 right-2">
                         <SiSpotify size={24} className="text-white/70" />
                       </div>
                       <div className="flex justify-between items-center gap-3 h-full">
-                        <img
+                        <Image
                           src={music.image}
                           alt={music.title}
                           width={96}

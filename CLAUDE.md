@@ -9,6 +9,7 @@ This is a personal portfolio website for "rai.bio" built with Next.js 15.3.2 usi
 ## Development Commands
 
 ### Primary Development
+
 ```bash
 bun run dev          # Start development server with Turbopack (recommended)
 bun run build        # Build for production with Turbopack
@@ -17,19 +18,22 @@ bun run lint        # Run ESLint with Next.js rules
 ```
 
 ### Package Management
+
 - Uses **bun** as the package manager (specified in package.json)
 - When installing packages, use `bun add` instead of `npm install`
 
 ## Architecture & Key Technologies
 
 ### Tech Stack
+
 - **Next.js 15.3.2** with App Router and React 19.0.0
-- **TypeScript** with strict configuration and path aliases (@/*)
+- **TypeScript** with strict configuration and path aliases (@/\*)
 - **Tailwind CSS v4** with custom theme using CSS variables and OKLCH color space
 - **Shadcn/ui** components with Radix UI primitives
 - **MDX** integration for blog posts with mathematical expressions (KaTeX)
 
 ### Project Structure
+
 ```
 src/
 ├── app/                    # Next.js App Router pages
@@ -59,6 +63,7 @@ public/                     # Static assets
 ## Blog Content Management
 
 ### MDX Files Structure
+
 - Located in `/content/` directory
 - Front matter format:
   ```yaml
@@ -72,6 +77,7 @@ public/                     # Static assets
 - GitHub Flavored Markdown with syntax highlighting
 
 ### Blog Processing
+
 - Server-side rendering for SEO optimization
 - Japanese date formatting (ja-JP locale)
 - Automatic slug generation from filename
@@ -79,12 +85,14 @@ public/                     # Static assets
 ## Styling System
 
 ### Tailwind Configuration
+
 - Uses Tailwind CSS v4 with `@theme` directive in globals.css
 - Custom color palette using OKLCH color space
 - CSS variables for theme switching
 - No separate tailwind.config.js file (inline configuration)
 
 ### Component Library
+
 - Shadcn/ui components for consistent UI
 - Custom MagicUI components for animations
 - Radix UI primitives for accessibility
@@ -99,16 +107,19 @@ public/                     # Static assets
 ## Common Development Tasks
 
 ### Adding New Blog Posts
+
 1. Create MDX file in `/content/` directory
 2. Add front matter with title, publishedAt, and summary
 3. Blog will automatically appear in listing and be statically generated
 
 ### Styling Components
+
 - Use existing Shadcn/ui components when possible
 - Follow CSS variable naming conventions for theme consistency
 - Utilize Tailwind classes with custom theme values
 
 ### Navigation Updates
+
 - Modify `src/components/navbar.tsx` for navigation changes
 - Dock items are configured in the Dock component
 

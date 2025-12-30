@@ -14,20 +14,20 @@ export default function PageTransition({ children }: PageTransitionProps) {
   return (
     <motion.div
       key={pathname}
-      initial={{ 
+      initial={{
         opacity: 0,
         scale: 0.95,
-        y: 20
+        y: 20,
       }}
-      animate={{ 
+      animate={{
         opacity: 1,
         scale: 1,
-        y: 0
+        y: 0,
       }}
       transition={{
         duration: 0.3,
         ease: [0.4, 0.0, 0.2, 1],
-        type: "tween"
+        type: "tween",
       }}
       className="w-full h-full"
     >
