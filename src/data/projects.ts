@@ -4,7 +4,7 @@ export type Project = {
   href?: string;
 };
 
-export const projects: Project[] = [
+export const projects: Array<Project> = [
   {
     name: "Deni AI",
     description: "An AI chat app created for everyone, free.",

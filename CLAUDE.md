@@ -24,7 +24,7 @@ bun run preview      # Preview the production build
 ### Tech Stack
 
 - **TanStack Start** with **TanStack Router** (file-based routes)
-- **TypeScript** with strict configuration and path aliases (@/*)
+- **TypeScript** with strict configuration and path aliases (@/\*)
 - **Tailwind CSS v4** with custom theme using CSS variables and OKLCH color space
 - **Shadcn/ui** components with Radix UI primitives
 - **Markdown/MDX content** parsed via gray-matter + react-markdown + remark/rehype

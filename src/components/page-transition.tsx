@@ -1,13 +1,15 @@
 import { useRouterState } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
 }
 
 export default function PageTransition({ children }: PageTransitionProps) {
-  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const pathname = useRouterState({
+    select: (state) => state.resolvedLocation?.pathname ?? state.location.pathname,
+  });
 
   return (
     <motion.div

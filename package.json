@@ -7,7 +7,10 @@
     "dev": "vite dev --port 3000",
     "build": "vite build",
     "preview": "vite preview --port 3000",
-    "start": "vite preview --port 3000"
+    "start": "vite preview --port 3000",
+    "lint": "oxlint",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt"
   },
   "dependencies": {
     "@fontsource/geist-mono": "^5.2.7",

@@ -1,4 +1,5 @@
 import { createServerFn, createServerOnlyFn } from "@tanstack/react-start";
+import matter from "gray-matter";
 
 export type PostData = {
   id: string;
@@ -28,10 +29,7 @@ function normalizeLanguage(value: unknown): string | undefined {
 function buildPostData(id: string, matterResult: MatterResult): PostData {
   return {
     id,
-    title:
-      typeof matterResult.data.title === "string"
-        ? matterResult.data.title
-        : "Untitled",
+    title: typeof matterResult.data.title === "string" ? matterResult.data.title : "Untitled",
     publishedAt:
       typeof matterResult.data.publishedAt === "string"
         ? matterResult.data.publishedAt
@@ -45,8 +43,7 @@ function buildPostData(id: string, matterResult: MatterResult): PostData {
   };
 }
 
-const readBlogPosts = createServerOnlyFn(async (): Promise<PostData[]> => {
-  const { default: matter } = await import("gray-matter");
+const readBlogPosts = createServerOnlyFn(async (): Promise<Array<PostData>> => {
   const postSources = import.meta.glob("../../content/*.mdx", {
     query: "?raw",
     import: "default",
@@ -62,28 +59,25 @@ const readBlogPosts = createServerOnlyFn(async (): Promise<PostData[]> => {
   return allPostsData.sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 });
 
-const readBlogPost = createServerOnlyFn(
-  async (id: string): Promise<PostData | null> => {
-    const { default: matter } = await import("gray-matter");
-    const postSources = import.meta.glob("../../content/*.mdx", {
-      query: "?raw",
-      import: "default",
-      eager: true,
-    }) as Record<string, string>;
+const readBlogPost = createServerOnlyFn(async (id: string): Promise<PostData | null> => {
+  const postSources = import.meta.glob("../../content/*.mdx", {
+    query: "?raw",
+    import: "default",
+    eager: true,
+  }) as Record<string, string>;
 
-    const normalizedId = id.replace(/\.mdx$/, "");
-    const matchKey = Object.keys(postSources).find(
-      (filePath) => getPostId(filePath) === normalizedId,
-    );
+  const normalizedId = id.replace(/\.mdx$/, "");
+  const matchKey = Object.keys(postSources).find(
+    (filePath) => getPostId(filePath) === normalizedId,
+  );
 
-    if (!matchKey) {
-      return null;
-    }
+  if (!matchKey) {
+    return null;
+  }
 
-    const matterResult = matter(postSources[matchKey]);
-    return buildPostData(normalizedId, matterResult as MatterResult);
-  },
-);
+  const matterResult = matter(postSources[matchKey]);
+  return buildPostData(normalizedId, matterResult as MatterResult);
+});
 
 export const getBlogPosts = createServerFn({
   method: "GET",

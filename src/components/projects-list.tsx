@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { projects, type Project } from "@/data/projects";
+import { projects } from "@/data/projects";
+import type { Project } from "@/data/projects";
 
 const baseClasses =
   "group block space-y-1 p-3 -mx-3 rounded-lg hover:bg-muted/50 transition-all duration-300 border border-transparent hover:border-border hover:shadow-sm animate-in fade-in slide-in-from-left-2";
 
 type ProjectsListProps = {
-  items?: Project[];
+  items?: Array<Project>;
   animationDelayStart?: number;
   animationDelayStep?: number;
 };
@@ -64,12 +65,7 @@ export function ProjectsList({
         }
 
         return (
-          <Link
-            key={project.name}
-            to={project.href}
-            className={baseClasses}
-            style={wrapperStyle}
-          >
+          <Link key={project.name} to={project.href} className={baseClasses} style={wrapperStyle}>
             {content}
           </Link>
         );

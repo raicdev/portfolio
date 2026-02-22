@@ -20,9 +20,12 @@ export const Route = createFileRoute("/blog/")({
       lang: typeof lang === "string" ? lang : undefined,
     };
   },
-  loader: async ({ search }) => {
+  loaderDeps: ({ search }) => ({
+    selectedLang: ((search?.lang || "jp") as string).toLowerCase(),
+  }),
+  loader: async ({ deps }) => {
     const posts = await getBlogPosts();
-    const selectedLang = ((search?.lang || "jp") as string).toLowerCase();
+    const selectedLang = deps.selectedLang;
     const filteredPosts =
       selectedLang && selectedLang !== "all"
         ? posts.filter((post) => (post.language || "en").toLowerCase() === selectedLang)

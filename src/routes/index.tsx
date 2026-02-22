@@ -5,12 +5,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ProjectsList } from "@/components/projects-list";
 import {
   Carousel,
-  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel";
 
 const musics = [
   {

@@ -27,11 +27,6 @@ export default defineConfig({
         }
         config.resolve ??= {};
         config.resolve.builtins = nodeBuiltins;
-        if (config.resolve.external !== true) {
-          const externals = new Set(config.resolve.external ?? []);
-          externals.add("gray-matter");
-          config.resolve.external = Array.from(externals);
-        }
       },
     },
     viteTsConfigPaths({
