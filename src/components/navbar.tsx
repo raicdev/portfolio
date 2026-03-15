@@ -1,5 +1,5 @@
 import { SiRefinedgithub, SiX } from "@icons-pack/react-simple-icons";
-import { Edit2Icon, HomeIcon, MailIcon, MoonIcon, SunIcon } from "lucide-react";
+import { Edit2Icon, HeartHandshakeIcon, HomeIcon, MailIcon, MoonIcon, SunIcon } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
@@ -9,6 +9,7 @@ const navItems = [
   { title: "Home", href: "/", icon: <HomeIcon className="size-4" /> },
   { title: "Blog", href: "/blog", icon: <Edit2Icon className="size-4" /> },
   { title: "Contact", href: "/contact", icon: <MailIcon className="size-4" /> },
+  { title: "Sponsor", href: "/sponsor", icon: <HeartHandshakeIcon className="size-4" /> },
 ];
 
 const socialItems = [
