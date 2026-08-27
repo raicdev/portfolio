@@ -1,0 +1,11 @@
+.git
+.grok
+.claude
+.output
+.nitro
+.tanstack
+node_modules
+*.md
+.env*
+.DS_Store
+.pnpm-debug.log*
