@@ -1,3 +1,4 @@
+import { builtinModules } from "node:module";
 import { defineConfig } from "vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -5,7 +6,6 @@ import viteReact from "@vitejs/plugin-react";
 import viteTsConfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
-import { builtinModules } from "node:module";
 
 const nodeBuiltins = Array.from(
   new Set(
@@ -15,9 +15,9 @@ const nodeBuiltins = Array.from(
   ),
 );
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
-    devtools(),
+    ...(mode === "development" ? [devtools()] : []),
     nitro(),
     {
       name: "nitro-node-builtins",
@@ -33,7 +33,14 @@ export default defineConfig({
       projects: ["./tsconfig.json"],
     }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: false,
+        autoStaticPathsDiscovery: true,
+        failOnError: true,
+      },
+    }),
     viteReact(),
   ],
-});
+}));

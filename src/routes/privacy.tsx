@@ -2,7 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
-    meta: [{ title: "Privacy Policy | rai.bio" }],
+    meta: [{ title: "Privacy Policy | raic.dev" }],
   }),
   component: Privacy,
 });
@@ -84,13 +84,13 @@ function Privacy() {
         <section className="space-y-3">
           <h2 className="text-base font-medium text-foreground">Contact</h2>
           <p>
-            If you have any questions about this Privacy Policy, you can reach us through the{" "}
-            <Link
-              to="/contact"
+            If you have any questions about this Privacy Policy, you can reach us at{" "}
+            <a
+              href="mailto:rai@rai.bio"
               className="text-foreground underline underline-offset-4 hover:text-foreground/80 transition-colors"
             >
-              contact page
-            </Link>
+              rai@rai.bio
+            </a>
             .
           </p>
         </section>

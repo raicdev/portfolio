@@ -51,7 +51,7 @@ const cryptoMethods = [
 
 export const Route = createFileRoute("/sponsor")({
   head: () => ({
-    meta: [{ title: "Sponsor | rai.bio" }],
+    meta: [{ title: "Sponsor | raic.dev" }],
   }),
   component: Sponsor,
 });

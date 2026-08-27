@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal portfolio website for "rai.bio" built with TanStack Start (TanStack Router + Vite/Nitro). The site features a homepage, MDX-based blog system, projects, and contact pages with modern styling and theming.
+This is a personal portfolio website for "raic.dev" built with TanStack Start (TanStack Router + Vite/Nitro). The site features a homepage, MDX-based blog system, projects, and contact pages with modern styling and theming.
 
 ## Development Commands
 

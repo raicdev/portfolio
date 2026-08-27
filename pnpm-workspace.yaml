@@ -1,0 +1,4 @@
+minimumReleaseAgeExclude:
+  - '@tanstack/react-router-ssr-query@1.167.2'
+  - '@tanstack/router-ssr-query-core@1.169.2'
+  - '@types/node@26.4.0'

@@ -11,17 +11,12 @@ export const projects: Array<Project> = [
     href: "https://deniai.app",
   },
   {
-    name: "Prodfind",
-    description: "A tool that allows you to find, publish products (discontinued)",
-    href: "https://prodfind.space",
-  },
-  {
     name: "VistaUpdater",
-    description: "Make Windows Vista to updateable. 50K+ users",
+    description: "Make Windows Vista updateable. 50K+ users",
     href: "https://vistaupdater.net",
   },
   {
-    name: "Coming Soon",
-    description: "Stay tuned for something new",
+    name: "Prodfind",
+    description: "A tool that allows you to find and publish products. Discontinued.",
   },
 ];

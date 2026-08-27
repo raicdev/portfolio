@@ -3,9 +3,9 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=raicdev&label=Profile%20views&color=0e75b6&style=flat" alt="raicdev" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy-liard-delta.vercel.app/?username=raicdev" alt="raicdev" /></a> </p>
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-repo.vercel.app/?username=raicdev" alt="raicdev" /></a> </p>
 
-<p align="left"> <a href="https://twitter.com/raic_dev" target="blank"><img src="https://img.shields.io/twitter/follow/raic_dev?logo=twitter&style=for-the-badge" alt="raic_dev" /></a> </p>
+<p align="left"> <a href="https://twitter.com/rai_dev" target="blank"><img src="https://img.shields.io/twitter/follow/rai_dev?logo=twitter&style=for-the-badge" alt="rai_dev" /></a> </p>
 
 - 🔭 I’m currently working on [Deni AI](https://github.com/teamzisty/deni-ai)
 
@@ -15,15 +15,15 @@
 
 - 🤝 I’m looking for help with [Deni AI](https://github.com/teamzisty/deni-ai)
 
-- 👨‍💻 All of my projects are available at [https://rai.bio/](https://rai.bio/)
+- 👨‍💻 All of my projects are available at [https://raic.dev/](https://raic.dev/)
 
-- 📝 I regularly write articles on [https://rai.bio/blog](https://rai.bio/blog)
+- 📝 I regularly write articles on [https://raic.dev/blog](https://raic.dev/blog)
 
 - 💬 Ask me about **React**
 
 - 📫 How to reach me **imraicdev@gmail.com**
 
-- 📄 Know about my experiences [https://rai.bio/](https://rai.bio/)
+- 📄 Know about my experiences [https://raic.dev/](https://raic.dev/)
 
 - ⚡ Fun fact **I am human**
 

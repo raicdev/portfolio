@@ -1,22 +1,19 @@
 import { HeadContent, Link, Scripts, createRootRoute } from "@tanstack/react-router";
 import PageTransition from "@/components/page-transition";
 import { ThemeProvider } from "@/components/theme-provider";
-import { NavBar } from "@/components/navbar";
 
 import appCss from "../styles.css?url";
-import katexCss from "katex/dist/katex.min.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "rai.bio" },
-      { name: "description", content: "" },
+      { title: "raic.dev" },
+      { name: "description", content: "Programmer and full-stack developer." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "stylesheet", href: katexCss },
       { rel: "icon", href: "/favicon.ico" },
     ],
   }),
@@ -38,10 +35,23 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           enableSystem
           disableTransitionOnChange
         >
-          <main className="p-4 py-12 md:py-20 lg:py-25 mx-auto max-w-xl min-h-screen h-full">
+          <main className="p-4 py-16 mx-auto max-w-xl min-h-screen">
             <PageTransition>{children}</PageTransition>
+            <footer className="mt-20 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
+              <Link to="/" className="hover:text-foreground transition-colors">
+                Home
+              </Link>
+              <Link to="/sponsor" className="hover:text-foreground transition-colors">
+                Sponsor
+              </Link>
+              <Link to="/privacy" className="hover:text-foreground transition-colors">
+                Privacy
+              </Link>
+              <Link to="/terms" className="hover:text-foreground transition-colors">
+                Terms
+              </Link>
+            </footer>
           </main>
-          <NavBar />
         </ThemeProvider>
         <Scripts />
       </body>

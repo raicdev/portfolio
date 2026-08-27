@@ -2,7 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
-    meta: [{ title: "Terms of Service | rai.bio" }],
+    meta: [{ title: "Terms of Service | raic.dev" }],
   }),
   component: Terms,
 });
